@@ -17,7 +17,7 @@ REGION = os.environ.get("AWS_REGION", "ap-south-1")
 dynamodb = boto3.resource('dynamodb', region_name=REGION)
 sns = boto3.client('sns', region_name=REGION)
 
-users_table = dynamodb.Table('travel-User')
+users_table = dynamodb.Table('travel-user')
 bookings_table = dynamodb.Table('Bookings')
 
 SNS_TOPIC_ARN = "arn:aws:sns:ap-south-1:992398098218:BookingConfirmation"
@@ -196,5 +196,6 @@ def logout():
 if __name__ == '__main__':
     # Running on 0.0.0.0 for EC2 access, but debug is OFF for safety
     app.run(host='0.0.0.0', port=5000, debug=False)
+
 
 
